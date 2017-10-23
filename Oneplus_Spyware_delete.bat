@@ -1,5 +1,4 @@
 @echo off
-Color 0A
 set /p pfad=Pfad Hauptverzeichnis adb(Standart C:\adb) 
 if defined %pfad% (GOTO:EOF)
 if %pfad%==nul ( set %pfad% = "C:\adb" )
