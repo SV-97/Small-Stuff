@@ -1,6 +1,6 @@
 function export_gcal() { //takes events from google calendar, applies certain criteria and transfers to google spreadsheet
-  var owner = ""; //owner of the calendar
-  var calender = CalendarApp.getCalendarById(owner); //calendar
+  var owner = "tse1.2017.18@gmail.com"; //owner of the calendar
+  var calendar = CalendarApp.getCalendarById(owner); //calendar
   var row = 4; //row in which to start ouputting data
   var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets(); // array with all sheets of current spreadsheet
   var sheet = sheets[0]; //select first sheet
@@ -9,11 +9,11 @@ function export_gcal() { //takes events from google calendar, applies certain cr
   var currentMonth = today.getMonth(); //Current month
   if( currentMonth.valueOf()+1 >= 9 ) //if current month is september or later ## +1 to compensate for January = 0
   {
-    var start_time = new Date('September 01, ' + today.getYear()) //set start time in current year
+    var start_time = new Date("September 01, " + today.getYear()) //set start time in current year
   } 
   else //if current month is earlier than september
   {
-    var start_time = new Date('September 01, (today.getYear()-1)') //set start time in last year
+    var start_time = new Date("September 01, " + (today.getYear()-1)) //set start time in last year
   };
    
   var end_time = new Date(start_time.getTime() + 3.154*Math.pow(10, 10)); //3,154E10 miliseconds equal one year 
